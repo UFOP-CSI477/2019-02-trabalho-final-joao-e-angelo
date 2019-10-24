@@ -12,7 +12,7 @@
 <!-- Apresentar o tema. -->
 ### 1. Tema
 
-  O trabalho final tem como tema o desenvolvimento de ...
+  O trabalho final tem como tema o desenvolvimento de uma plataforma para criação de listas de filmes e avaliações.
 
 <!-- Descrever e limitar o escopo da aplicação. -->
 ### 2. Escopo
