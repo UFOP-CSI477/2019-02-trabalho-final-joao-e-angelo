@@ -13,8 +13,11 @@
 
 
 
-Route::get('/login',['as'=>'login','uses'=>'Login@index']);
+Route::get('/',['as'=>'login','uses'=>'Login@index']);
 Route::post('/login/entrar',['uses' =>'Login@entrar','as'=> 'site.login.entrar']);
+
+Route::get('/addFilme',['as'=>'addFilme','uses'=>'Adm@index']);
+Route::post('/addFilmeSalvar',['as'=>'addFilme.salvar','uses'=>'Adm@add']);
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/home',['as'=>'home','uses'=>'Principal@index']);
