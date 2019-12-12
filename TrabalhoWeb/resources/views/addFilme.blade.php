@@ -38,11 +38,8 @@
               <input class="file-path validate" type="text">
             </div>
           </div>
-          @if(isset($registro->imagem))
-          <div class="input-field">
-            <img width="150" src="{{asset($registro->imagem)}}" />
-          </div>
-          @endif
+
+          
           
           
           

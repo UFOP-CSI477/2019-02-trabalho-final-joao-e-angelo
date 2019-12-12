@@ -11,8 +11,6 @@
 |
 */
 
-
-
 Route::get('/',['as'=>'login','uses'=>'Login@index']);
 Route::post('/login/entrar',['uses' =>'Login@entrar','as'=> 'site.login.entrar']);
 
@@ -22,4 +20,6 @@ Route::post('/addFilmeSalvar',['as'=>'addFilme.salvar','uses'=>'Adm@add']);
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/home',['as'=>'home','uses'=>'Principal@index']);
     Route::get('/pesquisaFilme',['as'=>'pesquisa','uses'=>'Principal@pesquisaFilme']);
+    Route::get('/listasFilmes',['as'=>'listas','uses'=>'Principal@listas']);
+    Route::get('/listarFilmes',['as'=>'filmes.lista','uses'=>'Principal@listarFilmesLista']);
 });

@@ -51,16 +51,15 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-list"></i>
-          <span>Minhas Listas</span>
+          <a class="nav-link" href="{{route('listas')}}">
+              <i class="fas fa-list"></i>
+            <span>Minhas Listas</span></a>
         </a>
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-star"></i>
-            <span>Minhas Avaliações</span>
-        </a>
+          <a class="nav-link" href="">
+              <i class="fas fa-star"></i>
+            <span>Minhas Avaliações</span></a>
       </li>
 
       <!-- Divider -->
@@ -86,7 +85,7 @@
           <!-- Topbar Search -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="{{route('pesquisa')}}">
             <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Pesquisar Filme" aria-label="Search" aria-describedby="basic-addon2">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Pesquisar Filme" aria-label="Search" aria-describedby="basic-addon2" name="pesquisa">
               <div class="input-group-append">
                 <button class="btn btn-primary" type="submit">
                   <i class="fas fa-search fa-sm"></i>
@@ -126,10 +125,6 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Perfil
-                </a>
                 <a class="dropdown-item" href="#">
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                   Configurações
@@ -182,15 +177,15 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Deseja mesmo sair?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-body">Clique em "Logout" para sair da página atual.</div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+        <a class="btn btn-primary" href="{{route('login')}}">Logout</a>
         </div>
       </div>
     </div>
