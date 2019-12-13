@@ -38,10 +38,6 @@
               <input class="file-path validate" type="text">
             </div>
           </div>
-
-          
-          
-          
           
         <button class="btn deep-orange" type="submit">Salvar</button>
       </form>

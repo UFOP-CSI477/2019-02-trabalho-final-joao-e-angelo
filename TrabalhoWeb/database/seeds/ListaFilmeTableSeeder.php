@@ -13,8 +13,8 @@ class ListaFilmeTableSeeder extends Seeder
     public function run()
     {
         $dados = [
-            'filme_id'=>"1",
-            'lista_id'=>"1"
+            'filme_id'=>"3",
+            'lista_id'=>"2"
         ];
         if(ListaFilme::where('lista_id','=', $dados['lista_id'])->count()){
             $usuario = ListaFilme::where('lista_id','=', $dados['lista_id'])->first();

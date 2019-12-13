@@ -16,7 +16,7 @@
                 <td>{{$l->listaId}}</td>
                 <td>{{$l->nomeLista}}</td>
                 <td>{{$l->created_at}}</td>
-                <td><a class="btn deep-orange" href="{{route('filmes.lista', $l->listaId)}}">Ir!</a></td>
+                <td><a class="btn deep-orange" href="{{ route('filmes.lista',$l->listaId) }}">Ir!</a></td>
             </tr>        
             @endforeach
         </tbody>
