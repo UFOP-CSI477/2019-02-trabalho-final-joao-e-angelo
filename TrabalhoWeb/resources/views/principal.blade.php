@@ -57,7 +57,7 @@
         </a>
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-      <a class="nav-link" href="{{route('avaliar')}}">
+      <a class="nav-link" href="{{route('avaliacoes')}}">
               <i class="fas fa-star"></i>
             <span>Minhas Avaliações</span></a>
       </li>

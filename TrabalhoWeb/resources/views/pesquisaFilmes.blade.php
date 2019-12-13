@@ -23,8 +23,6 @@
                     </div>
                     <div class="card-body">
                         <div class="chart-bar">
-                            Id: {{$f->filmeId}}
-                            <br>
                             Tútulo: {{$f->titulo}}
                             <br>
                             Descrição: {{$f->descricao}}
@@ -32,6 +30,8 @@
                             Gênero: {{$f->genero}}
                             <br>
                             Classificação Indicativa: {{$f->cIndicativa}}
+                            <br>
+                            {{$f->ave}} <i class="fas fa-star"></i> 
                         </div>
                     </div>
                 </div>
@@ -51,24 +51,27 @@
                                 @endforeach
                             </select>
                             <p>
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Incluir</button>
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Adicionar na Lista</button>
                             <p>
-                            <form>
-                                <select class="custom-select mr-sm-2" name="nota">
-                                    
-                                </select>
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Incluir</button>
-                            </form>
                         </div>
                     </div>
                 </div>  
             </div>
-
-            
         </div>
     </div> 
-
-
 </form>  
+<form action="{{route('avaliar', $f->filmeId)}}" method="post">
+    <div class="container-fluid">
+    @csrf
+    <select class="custom-select mr-sm-2 col-xl-3" name="nota">
+        <option value="1">1</option>   
+        <option value="2">2</option> 
+        <option value="3">3</option> 
+        <option value="4">4</option> 
+        <option value="5">5</option> 
+    </select>
+    <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">Dar Nota</button>
+    </div>
+</form>
 @endforeach
 @endsection

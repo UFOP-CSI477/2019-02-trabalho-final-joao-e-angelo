@@ -22,8 +22,10 @@ class Principal extends Controller
         $pesquisa = $request->pesquisa;
         
         $filme = DB::table('filmes')
-                ->select(DB::raw('*'))
+                ->join('user_filmes', 'filmes.filmeId', '=', 'user_filmes.filme_id')
+                ->select('filmes.*', DB::raw('CAST(AVG(user_filmes.avaliacao) AS DECIMAL(10,1)) as ave'))
                 ->where('titulo', '=',  $pesquisa)
+                ->groupBy('filme_id')
                 ->get();
         
         $lista = DB::select(DB::raw('select * from listas'));
@@ -65,8 +67,22 @@ class Principal extends Controller
         return redirect()->route('listas');
     }
 
-    public function avaliar(){
-        return view('avaliacaoDeFilmes');
+    public function avaliacoes(){
+        $listaAvaliacoes = DB::select(DB::raw(' select f.titulo, uf.avaliacao
+                                                from users u, user_filmes uf, filmes f
+                                                where uf.user_id = u.id and f.filmeId = uf.filme_id and u.id = '.Auth::user()->id.'' ));
+        
+        return view('avaliacaoDeFilmes', ['listaAvaliacoes' => $listaAvaliacoes]);
     }
 
+    public function avaliar(Request $request, $dados){
+        $uf = new UserFilme;
+        $uf->avaliacao = $request->nota;  
+        $uf->user_id = Auth::user()->id;
+        $uf->filme_id = $dados;
+        
+        DB::insert('insert into user_filmes (user_id, filme_id, avaliacao) values ('.$uf->user_id.', '.$uf->filme_id.','.$uf->avaliacao.')');
+        
+        return view('principal');
+    }
 }
