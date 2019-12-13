@@ -11,5 +11,11 @@ class Cadastro extends Controller
         return view('LoginCadastro.cadastro');
     }
 
-    
+    public function cadastrar(Request $req){
+        return User::create([
+            'name' => $req['name'],
+            'email' => $req['email'],
+            'password' => bcrypt($req['password']),
+        ]);
+    }
 }

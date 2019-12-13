@@ -35,6 +35,9 @@
                     <hr class="my-4">
                 </form>
                 </div>
+                <a href="{{route('cadastro')}}" class="btn btn-primary btn-user btn-block">
+                    Criar Conta
+                </a>
             </div>
             </div>
         </div>
