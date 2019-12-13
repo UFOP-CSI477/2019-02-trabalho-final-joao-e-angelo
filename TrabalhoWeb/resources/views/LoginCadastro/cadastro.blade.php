@@ -15,19 +15,20 @@
             <div class="card card-signin my-5">
                 <div class="card-body">
                 <h5 class="card-title text-center">Cadastro</h5>
-                <form class="form-signin">
+                <form class="form-signin" method="post" action="{{route('cadastrar')}}">
+                    @csrf
                     <div class="form-label-group">
-                        <input type="email" id="inputUser" class="form-control" placeholder="Usuário" required autofocus>
+                        <input name="name" type="user" id="inputUser" class="form-control" placeholder="Usuário" required autofocus>
                         <label for="inputEmail">Usuário</label>
                     </div>
                     
                     <div class="form-label-group">
-                        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                        <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
                         <label for="inputEmail">E-mail</label>
                     </div>
     
                     <div class="form-label-group">
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+                        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
                         <label for="inputPassword">Senha</label>
                     </div>
     

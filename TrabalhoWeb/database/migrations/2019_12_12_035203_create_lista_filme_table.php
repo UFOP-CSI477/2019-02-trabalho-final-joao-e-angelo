@@ -13,7 +13,7 @@ class CreateListaFilmeTable extends Migration
      */
     public function up()
     {
-        Schema::create('lista_filme', function (Blueprint $table) {
+        Schema::create('lista_filmes', function (Blueprint $table) {
             $table->integer('lista_id')->unsigned();
             $table->integer('filme_id')->unsigned();
             $table->foreign('lista_id')->references('listaId')->on('listas');

@@ -64,7 +64,24 @@
 
       <!-- Divider -->
       <hr class="sidebar-divider">
+    <form action="{{route('criar.lista')}}" method="post">
+      @csrf
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-plus"></i>
+          <span>Criar Lista</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            
+            <input type="text" class="form-control bg-light border-0 small" placeholder="   Nome" aria-label="Search" aria-describedby="basic-addon2" name="nomeLista">
+            <button type="submit"></button>
+ 
+          </div>
+        </div>
 
+      </li>
+      </form>
     </ul>
     <!-- End of Sidebar -->
 
@@ -125,11 +142,7 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Configurações
-                </a>
-                <div class="dropdown-divider"></div>
+                
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Sair

@@ -10,7 +10,7 @@
                 <div class="card shadow mb-4">
                     <div class="card-body">
                         <div class="chart-area">
-                            <img src="{{asset($f->foto)}}">
+                            <img src="{{$f->foto}}">
                         </div>
                     </div>
                 </div>  
@@ -31,7 +31,7 @@
                             <br>
                             Classificação Indicativa: {{$f->cIndicativa}}
                             <br>
-                            <i class="fas fa-star"></i> Seja o primeiro a avaliar 
+                            {{$f->ave}} <i class="fas fa-star"></i> 
                         </div>
                     </div>
                 </div>

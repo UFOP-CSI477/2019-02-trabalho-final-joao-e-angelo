@@ -13,11 +13,11 @@ class CreateUserListaTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_lista', function (Blueprint $table) {
+        Schema::create('user_listas', function (Blueprint $table) {
             $table->integer('user_id')->unsigned();
             $table->integer('lista_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('lista_id')->references('listaId')->on('listas');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('lista_id')->references('listaId')->on('listas')->onDelete('cascade');
             $table->timestamps();
         });
     }

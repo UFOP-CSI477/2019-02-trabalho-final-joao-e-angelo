@@ -1,5 +1,5 @@
 <div class="container">
-    <h3 class="center">Adicionar Curso</h3>
+    <h3 class="center">Adicionar Filme</h3>
     <div class="row">
     <form class="" action="{{route('addFilme.salvar')}}" method="post">
         {{ csrf_field() }}
@@ -38,7 +38,6 @@
               <input class="file-path validate" type="text">
             </div>
           </div>
-          
         <button class="btn deep-orange" type="submit">Salvar</button>
       </form>
     </div>

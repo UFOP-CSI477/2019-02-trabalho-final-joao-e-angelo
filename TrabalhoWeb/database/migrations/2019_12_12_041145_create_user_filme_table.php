@@ -13,7 +13,7 @@ class CreateUserFilmeTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_filme', function (Blueprint $table) {
+        Schema::create('user_filmes', function (Blueprint $table) {
             $table->integer('user_id')->unsigned();
             $table->integer('filme_id')->unsigned();
             $table->integer('avaliacao');

@@ -13,16 +13,16 @@ class ListaFilmeTableSeeder extends Seeder
     public function run()
     {
         $dados = [
-            'filme_id'=>"3",
-            'lista_id'=>"2"
+            'filme_id'=>"1",
+            'lista_id'=>"1"
         ];
-        if(ListaFilme::where('lista_id','=', $dados['lista_id'])->count()){
-            $usuario = ListaFilme::where('lista_id','=', $dados['lista_id'])->first();
-            $usuario->update($dados);
-            echo "Usuário Alterado! ";
-        }else{
-            ListaFilme::create($dados);
-            echo "Usuário Criado! ";
-        }    
+        // if(ListaFilme::where('lista_id','=', $dados['lista_id'])->count()){
+        //     $usuario = ListaFilme::where('lista_id','=', $dados['lista_id'])->first();
+        //     $usuario->update($dados);
+        //     echo "Usuário Alterado! ";
+        // }else{
+        //     ListaFilme::create($dados);
+        //     echo "Usuário Criado! ";
+        // }    
     }
 }

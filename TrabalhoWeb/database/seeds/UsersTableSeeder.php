@@ -13,8 +13,8 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $dados = [
-            'name'=>"Angelo",
-            'email'=>"angelo@gmail.com",
+            'name'=>"João",
+            'email'=>"jvmr535@gmail.com",
             'password'=>bcrypt("123456"),
 
         ];

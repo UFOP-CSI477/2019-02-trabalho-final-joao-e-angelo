@@ -13,7 +13,7 @@ class ListasTableSeeder extends Seeder
     public function run()
     {
         $dados = [
-            'nomeLista'=>"Filmes de Mafia",
+            'nomeLista'=>"Ver depois",
         ];
         if(Lista::where('nomeLista','=', $dados['nomeLista'])->count()){
             $usuario = Lista::where('nomeLista','=', $dados['nomeLista'])->first();
