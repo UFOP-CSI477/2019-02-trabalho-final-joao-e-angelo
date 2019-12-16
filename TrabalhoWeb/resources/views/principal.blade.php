@@ -75,13 +75,21 @@
           <div class="bg-white py-2 collapse-inner rounded">
             
             <input type="text" class="form-control bg-light border-0 small" placeholder="   Nome" aria-label="Search" aria-describedby="basic-addon2" name="nomeLista">
-            <button type="submit"></button>
+            <button type="submit" class="btn btn-outline-warning">Criar</button>
  
           </div>
         </div>
 
       </li>
       </form>
+
+      <hr class="sidebar-divider">
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="filmes" >
+          <i class="fas fa-fw fa-list"></i>
+          <span>Listar Filmes</span>
+        </a>
+      </li>
     </ul>
     <!-- End of Sidebar -->
 

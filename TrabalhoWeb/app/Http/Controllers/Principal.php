@@ -47,22 +47,26 @@ class Principal extends Controller
 
     public function criarLista(Request $request){
         $nomeLista = $request->nomeLista;
+        if($nomeLista == null){
+            return view('principal');
+        }
+        else{
+            DB::insert('insert into listas (nomeLista) values ("'.$nomeLista.'")');
 
-        DB::insert('insert into listas (nomeLista) values ("'.$nomeLista.'")');
+            $ultimoValor = DB::table('listas')
+                ->select('listaID')
+                ->orderBy('listaId', 'desc')
+                ->first();
 
-        $ultimoValor = DB::table('listas')
-            ->select('listaID')
-            ->orderBy('listaId', 'desc')
-            ->first();
-
-        DB::insert('insert into user_listas (user_id, lista_id) values ("'.Auth::user()->id.'", "'.$ultimoValor->listaID.'")');
-        
-        return view('principal');
+            DB::insert('insert into user_listas (user_id, lista_id) values ("'.Auth::user()->id.'", "'.$ultimoValor->listaID.'")');
+            
+            return view('principal');
+        }
     }
 
     public function listas(){
  
-        $listas = DB::select(DB::raw('select l.* 
+        $listas = DB::select(DB::raw('select distinct l.* 
         from listas l, users u, user_listas ul
         where u.id = ul.user_id and u.id =' .Auth::user()->id.'')); 
         
@@ -72,18 +76,12 @@ class Principal extends Controller
     public function deletarLista($listaId){
         
         DB::table('user_listas')->where('lista_id', '=', $listaId)->delete();
+        DB::table('listas')->where('listaId', '=', $listaId)->delete();
 
         return view('principal');
     }
 
-    public function listarFilmesLista($listaId){
-        
-        $filmesDaLista = DB::select(DB::raw('select f.filmeId, f.titulo, f.genero, f.cIndicativa
-        from listas l, users u, user_listas ul, lista_filmes lf, filmes f
-        where  u.id = '.Auth::user()->id.' and u.id = ul.user_id and l.listaId = '.$listaId.' and l.listaId = lf.lista_id and f.filmeId = lf.filme_id '));
-        
-        return view('Listas.filmesDaLista', ['filmesDaLista' =>$filmesDaLista]);
-    }
+    
 
     public function deletarDaLista($filmeId){
         
@@ -118,5 +116,20 @@ class Principal extends Controller
         DB::insert('insert into user_filmes (user_id, filme_id, avaliacao) values ('.$uf->user_id.', '.$uf->filme_id.','.$uf->avaliacao.')');
         
         return view('principal');
+    }
+
+    public function listarFilmesLista($listaId){
+        
+        $filmesDaLista = DB::select(DB::raw('select distinct f.filmeId, f.titulo, f.genero, f.cIndicativa
+        from listas l, users u, user_listas ul, lista_filmes lf, filmes f
+        where  u.id = '.Auth::user()->id.' and u.id = ul.user_id and l.listaId = '.$listaId.' and l.listaId = lf.lista_id and f.filmeId = lf.filme_id '));
+        
+        return view('Listas.filmesDaLista', ['filmesDaLista' =>$filmesDaLista]);
+    }
+
+    public function listarFilmes(){
+        $filmesCadastrados = DB::select(DB::raw('select distinct * from filmes order by(titulo)'));
+
+        return view('filmes', ['filmesCadastrados' =>$filmesCadastrados]);
     }
 }

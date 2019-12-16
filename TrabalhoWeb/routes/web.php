@@ -29,6 +29,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/deletarFilmes/{filmeId}',['as'=>'deletar.filmes.lista','uses'=>'Principal@deletarDaLista']);
     Route::post('/addNaLista/{filmeId}',['as'=>'adicionar.filmes.lista','uses'=>'Principal@addNaLista']);
     Route::post('/criarLista',['as'=>'criar.lista','uses'=>'Principal@criarLista']);
+    Route::get('/filmes', ['as'=>'filmes','uses'=>'Principal@listarFilmes']);
 
     Route::get('/avaliacoes',['as'=>'avaliacoes','uses'=>'Principal@avaliacoes']);
     Route::post('/avaliar/{filmeId}',['as'=>'avaliar','uses'=>'Principal@avaliar']);
